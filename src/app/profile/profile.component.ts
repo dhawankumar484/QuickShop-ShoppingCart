@@ -37,23 +37,23 @@ export class ProfileComponent implements OnInit {
 
   //Calculating age from DOB
   dateOfBirth(event:any){
-    let currentAge = moment().diff(moment(event.target.value, "YYYY-MM-DD"), "years");
+    this.currentAge = moment().diff(moment(event.target.value, "YYYY-MM-DD"), "years");
   }
 
   //submitting form
   onSubmit() {
     this.submitted = true;
 
-    //Checking if age and dob matches or not
-    if(this.currentAge!=='' && this.currentAge != this.registerForm.controls['dob'].value){
-      this.toastr.error("Enter a valid Date of birth or Age");
+    
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
       return;
     }
 
-
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-        return;
+    //Checking if age and dob matches or not
+    if(this.currentAge!=='' && this.currentAge != this.registerForm.controls['age'].value){
+      this.toastr.error("Enter a valid Date of birth or Age");
+      return;
     }
 
     // display form values on success
