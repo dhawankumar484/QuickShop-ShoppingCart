@@ -52,3 +52,9 @@
     background-color: #fff;
     border: 1px solid #A367BD;
   }
+
+  @media only screen and (min-width: 992px ) {
+    .product-card{
+      max-height: 15.5rem;
+    }
+  }

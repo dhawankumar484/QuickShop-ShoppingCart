@@ -164,7 +164,7 @@ export class ProductListService {
     },
     {
     "id": 14,
-    "title": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
+    "title": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA)",
     "price": 65999.90,
     "description": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
     "category": "Electronics",
@@ -188,7 +188,7 @@ export class ProductListService {
     },
     {
     "id": 16,
-    "title": "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
+    "title": "Lock and Love Women's Removable Hooded Faux Leather Biker Jacket",
     "price": 1440.90,
     "description": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
     "category": "Women's clothing",
