@@ -1,0 +1,51 @@
+/* Back Button */
+.button-back {
+    margin: 1% 0px 2px 4px; 
+    border-radius: 50% !important;
+    background-color: #A367BD;
+    color: white;
+    border: none !important;
+    padding: 6px 12px !important;
+    transition: background-color 1s, transform 0.5s;
+}
+  
+.button-back:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    -webkit-transform: translateX(-5px);
+    -webkit-box-shadow: 5px 0px 18px 0px rgba(105,105,105,0.8);
+    -moz-box-shadow: 5px 0px 18px 0px rgba(105,105,105,0.8);
+    box-shadow: 5px 0px 18px 0px rgba(105,105,105,0.8);
+}
+
+.card-img-top{
+    height: 28rem;
+}
+
+.description{
+    color: grey;
+}
+
+.ratings{
+    background-color: rgb(224, 172, 248); 
+    border-radius: 3px;
+}
+
+.inclusive{
+    color: rgb(3, 166, 133);
+}
+
+.count{
+    color: rgb(255, 144, 90);
+}
+
+.btn{
+    background-color: #A367BD; 
+    color: #fff;
+  }
+  
+.btn:hover{
+    color: #A367BD;
+    background-color: #fff;
+    border: 1px solid #A367BD;
+  }

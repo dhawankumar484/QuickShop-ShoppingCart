@@ -1,0 +1,73 @@
+<!-- Cart Component -->
+
+<div class="container-fluid">
+  <!-- Empty cart -->
+  <div class="text-center pt-5 empty-cart" *ngIf="this.productService.cartProducts.length==0">
+    <h1>Your Cart Is <strong style="color: #A367BD;">Empty!</strong></h1>
+    <p class="fs-5">Must add items on the cart before you place an order.</p>
+    <button class="btn goToHome" (click)="goToHome()">Go To Home</button>
+  </div>
+
+  <!-- Full Cart -->
+  <div class="row me-5 me-lg-0" *ngIf="this.productService.cartProducts.length>0">
+
+    <div class="col-12 col-lg-7 card m-4" *ngFor="let item of this.productService.cartProducts; index as i">
+      <div class="row">
+        <!-- Product Image -->
+        <div class="col-3 image">
+          <img class="card-img-top p-2" [src]="item.image" alt="Card image cap">
+        </div>
+
+        <!-- Product Details -->
+        <div class="col">
+          <div class="row">
+            <div class="col-10 mt-2 mb-1">
+              <span class="card-text brand text-capitalize mb-1 fw-bold">{{item.title}}</span>
+            </div>
+            <div class="col-2 mt-1">
+              <button (click)="removeProduct(item)" class="btn float-end remove-product"><i class="bi bi-x-lg"></i></button>
+            </div>
+          </div>
+
+          <p class="card-text category text-capitalize mb-1 fw-light" style="font-size: 15px;">{{item.category}}</p>
+          <p class="card-text description text-capitalize mb-2">{{item.description | ellipsis : 140}}</p>
+          <span class="card-text rating text-capitalize mb-2 p-1 fw-bold">Ratings: {{item.rating.rate}}/5</span>
+          <p class="card-text price mt-2 mb-1 fw-bolder">{{item.price | currency: 'INR':true}}</p>
+          <p class="card-text return" style="font-size: 14.5px;"><strong>14 days</strong> return avaliable</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Amount Table -->
+    <div class="col-12 col-lg-4 card mt-4 ms-4 mb-5 m-2">
+        <div class="text-center mb-3">
+          <strong class="fs-4 col price-details">Price Details</strong>
+        </div>
+        <table class="table">
+        <tbody>
+          <tr>
+            <td>Total MRP</td>
+            <td>{{totalMRP | currency: 'INR':true}}</td>
+          </tr>
+          <tr>
+            <td>Platform Fee</td>
+            <td>{{platformFee | currency: 'INR':true}}</td>
+          </tr>
+          <tr>
+            <td>Shipping Fee</td>
+            <td>{{shippingFee | currency: 'INR':true}}</td>
+          </tr>
+          <br>
+          <tr>
+            <td><strong style="color: #A367BD;">Total Amount</strong></td>
+            <td><strong style="color: #A367BD;">{{totalMRP + platformFee + shippingFee | currency: 'INR':true}}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn w-100 mb-3 placeOrder" (click)="placeOrder()">Place Order</button>
+
+
+    </div>
+
+  </div>
+</div>

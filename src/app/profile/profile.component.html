@@ -1,0 +1,82 @@
+<!-- Profile Component -->
+
+<div class="container pt-3 pb-5">
+<div class="m-3">
+    <div class="justify-content-center mt-4 mb-4">
+    <h5 class="card-header text-center fs-2" style="color: #A367BD;;">Profile Rergistration</h5>
+</div>
+    <div class="">
+        <!-- Registration form -->
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-row justify-content-center">
+                <div class="form-group col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mb-3">
+                    <!-- First Name -->
+                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && form['firstName'].errors }" placeholder="First Name"/>
+                    <div *ngIf="submitted && form['firstName'].errors" class="invalid-feedback">
+                        <div *ngIf="form['firstName'].errors['required']">First Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mb-3">
+                    <!-- Last Name -->
+                    <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && form['lastName'].errors }" placeholder="Last Name"/>
+                    <div *ngIf="submitted && form['lastName'].errors" class="invalid-feedback">
+                        <div *ngIf="form['lastName'].errors['required']">Last Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mb-3">
+                    <!-- Mobile No -->
+                    <input type="number" formControlName="mobileNo" class="form-control" [ngClass]="{ 'is-invalid': submitted && form['mobileNo'].errors}" placeholder="Mobile No"/>
+                    <div *ngIf="submitted && form['mobileNo'].errors" class="invalid-feedback">
+                        <div *ngIf="form['mobileNo'].errors['required']">Mobile No is required</div>
+                        <div *ngIf="form['mobileNo'].errors['min'] || form['mobileNo'].errors['max']">Enter a valid Mobile No</div>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mb-3">
+                    <!-- Address -->
+                    <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && form['address'].errors }" placeholder="Address"/>
+                    <div *ngIf="submitted && form['address'].errors" class="invalid-feedback">
+                        <div *ngIf="form['address'].errors['required']">Address is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mb-3">
+                    <!-- Email -->
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && form['email'].errors }" placeholder="Email"/>
+                    <div *ngIf="submitted && form['email'].errors" class="invalid-feedback">
+                        <div *ngIf="form['email'].errors['required']">Email is required</div>
+                        <div *ngIf="form['email'].errors['email']">Email must be a valid email address</div>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mb-3">
+                    <!-- Age -->
+                    <input type="number" formControlName="age" class="form-control" [ngClass]="{ 'is-invalid': submitted && form['age'].errors }" placeholder="Age"/>
+                    <div *ngIf="submitted && form['age'].errors" class="invalid-feedback">
+                        <div *ngIf="form['age'].errors['required']">age is required</div>
+                        <div *ngIf="form['age'].errors['min']">Age should be more than 7 years</div>
+                        <div *ngIf="form['age'].errors['max']">Age should be less than or equal to 120 years</div>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mb-3">
+                    <!-- Date Of Birth -->
+                    <input type="date" formControlName="dob" class="form-control" (change)="dateOfBirth($event)" [ngClass]="{ 'is-invalid': submitted && form['dob'].errors }" placeholder="dd-mm-yyyy"/>
+                    <div *ngIf="submitted && form['dob'].errors" class="invalid-feedback">
+                        <div *ngIf="form['dob'].errors['required']">Date Of Birth is required</div>
+                    </div>
+                </div>
+
+                <!-- Terms and Condition Checkbox -->
+                <div class="form-group col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mb-3 form-check">
+                    <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && form['acceptTerms'].errors }" />
+                    <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                    <div *ngIf="submitted && form['acceptTerms'].errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+                </div>
+            </div>
+
+            <!-- Register and Reset Button -->
+            <div class="text-center">
+                <button class="btn btn-primary me-1">Register</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>

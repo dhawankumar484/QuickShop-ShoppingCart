@@ -1,0 +1,42 @@
+
+
+.coco {
+    width: 90px; 
+    /*border: 1px solid blue;*/
+}
+
+.nav-item {
+    font-weight: bold;
+    color: black;
+}
+
+.nav-item,
+.nav-link {
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+input{
+    background-color: rgb(250, 249, 249); 
+    border: none;
+}
+
+.search ul{
+    float: inline-end;
+}
+
+.search ul button span{
+    color: #fff; 
+    background-color: red; 
+    font-size: 10px; 
+    position: absolute; 
+    border-radius: 50%; 
+    margin: 2px 0 0 -8px;
+    width: 15px;
+}
+
+i:hover{
+    color: #A367BD;
+}

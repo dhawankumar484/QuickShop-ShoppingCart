@@ -1,0 +1,37 @@
+<!-- Item Details Component -->
+
+<!-- Back button -->
+<div class="container-fluid">
+  <div class="ms-1 row row-button">
+      <div>
+        <button (click)="goBack()" class="btn button-back btn-lg text-center"><span><i class="bi bi-arrow-left"></i></span></button>
+      </div>
+  </div>
+  </div>
+
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Item Image -->
+    <div class="col-12 col-md-4 pt-4 ps-4">
+      <img class="card-img-top " [src]="this.productService.products[productId-1].image" alt="Card image cap">
+    </div>
+
+    <!-- Item Details -->
+    <div class="col-12 col-md-8 pt-4 ps-4">
+      <h3 class="mb-2">{{this.productService.products[productId-1].title}}</h3>
+      <h5 class="mb-4 fw-light">{{this.productService.products[productId-1].category}}</h5>
+      <h5 class="mb-4 description">{{this.productService.products[productId-1].description}}</h5>
+      <h5 class="text-capitalize ratings fw-bold mb-2 p-2 d-inline">Ratings: {{this.productService.products[productId-1].rating.rate}}/5 <i class="bi bi-star-fill"></i></h5>
+      <hr>
+      <h3 class="fw-bold mb-1">{{this.productService.products[productId-1].price | currency: 'INR':true}}</h3>
+      <strong class="inclusive">inclusive of all taxes</strong>
+      <h5 class="count mt-2 mb-5 fw-bold">(Only {{this.productService.products[productId-1].rating.count}} left)</h5>
+      <hr>
+
+      <!-- Add to cart button -->
+      <button class="btn w-100 mb-3" (click)="addItemToCart(this.productService.products[productId-1])">Add To Cart</button>
+    </div>
+  </div>
+</div>

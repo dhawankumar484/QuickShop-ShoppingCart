@@ -1,0 +1,35 @@
+<!-- Item list component -->
+
+<div *ngIf="this.productService.searchValue==''">
+  <!-- Banner component -->
+  <app-banner></app-banner>
+</div>
+
+<!-- Products item card  -->
+<div class="mx-0">
+  <div class="row justify-content-center">
+    <ng-container *ngFor="let item of this.productService.products; index as i">
+      <div class="col-3 card m-4 item-card" *ngIf="this.productService.searchValue==='' || item.category.toLowerCase().includes(this.productService.searchValue.toLowerCase()) || item.title.toLowerCase().includes(this.productService.searchValue.toLowerCase())">
+
+        <!-- Item Image -->
+        <div (click)="gotoDetails(item)">
+          <img class="card-img-top pt-1" [src]="item.image" alt="Card image cap">
+        </div>
+        
+        <!-- Item details -->
+        <div class="card-body p-2" (click)="gotoDetails(item)">
+          <p class="card-text brand text-capitalize mb-1 fw-bold">{{item.title | ellipsis:25}}</p>
+          <p class="card-text categorytext-capitalize mb-1">{{item.category}}</p>
+          <p class="card-text price">{{item.price | currency: 'INR':true}}</p>
+        </div>
+        
+        <hr class="mt-0 mb-2">
+
+        <!-- Add to Cart button -->
+        <div class="box pb-2 align-self-center">
+          <button class="btn" (click)="addItemToCart(item)">Add To Cart</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

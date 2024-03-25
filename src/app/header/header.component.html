@@ -1,0 +1,66 @@
+	<!-- Header Component -->
+
+    <nav class=" row navbar-expand navbar-light bg-light shadow-sm pt-2 ps-4 pe-4  bg-white ">
+	  <div class="col-2 col-lg-1 me-3">
+        <!-- Logo -->
+	    <p class="navbar-brand" role="button" (click)="goToHome()">
+	      <img src="../../assets/images/logo.png" alt="Easy shop" class="coco mr-5" />
+	    </p>
+	  </div>
+
+	  <div class=" col-11 row py-2" id="navbarSupportedContent">
+        <!-- Categories Shortcut -->
+	    <div *ngIf="router.url === '/items-list'" class="col-5 d-none d-lg-block mt-2">
+	      <ul class="navbar-nav mr-auto flex-grow-1">
+	        <li class="nav-item ">
+	          <button class="nav-link me-4" (click)="this.productService.searchValue='men'">MEN</button>
+	        </li>
+	        <li class="nav-item">
+	          <button class="nav-link me-4" (click)="this.productService.searchValue='women'">WOMEN</button>
+	        </li>
+	        <li class="nav-item">
+	          <button class="nav-link me-4" (click)="this.productService.searchValue='jewellery'">JEWELLERY</button>
+	        </li>
+	        <li class="nav-item">
+	          <button class="nav-link me-4" (click)="this.productService.searchValue='electronics'">ELECTRONICS</button>
+	        </li>
+	      </ul>
+	    </div>
+
+        <!-- Search bar for large screen -->
+	    <div *ngIf="router.url === '/items-list'" class="col-lg-5 form-group has-search flex-grow-1 mt-2 d-none d-lg-block">
+	      <input type="text" class="form-control" placeholder="Search for Products" [(ngModel)]="this.productService.searchValue" />
+	    </div>
+
+        <!-- Search, Profile and Cart button-->
+	    <div class="search col pe-4 pe-md-5 pe-lg-0">
+	      <ul class="navbar-nav mr-auto flex-grow-1">
+	        <li class="nav-item d-block d-lg-none" *ngIf="router.url === '/items-list'">
+	          <button class="nav-link me-4 fs-4" (click)="hideElement=!hideElement"><i class="bi bi-search"></i></button>
+	        </li>
+			<li class="nav-item " *ngIf="router.url !== '/items-list'">
+				<button class="nav-link me-4 fs-4" (click)="goToHome()"><i class="bi bi-house-fill"></i></button>
+			</li>
+			<li class="nav-item ">
+				<button class="nav-link me-4 fs-4" (click)="goToProfile()"><i class="bi bi-person-fill"></i></button>
+			</li>
+	        <li class="nav-item" *ngIf="this.productService.cartProducts.length==0">
+	          <button class="nav-link me-4 fs-4" (click)="goToCart()"><i class="bi bi-cart"></i></button>
+	        </li>
+	        <li class="nav-item" *ngIf="this.productService.cartProducts.length>0">
+	          <button class="nav-link me-4 fs-4" (click)="goToCart()"><i class="bi bi-cart-fill"></i>
+                    <span>{{this.productService.cartProducts.length}}</span>
+              </button>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+
+	</nav>
+
+    <!-- Search bar for small and medium screen -->
+	<div *ngIf="router.url === '/items-list' && hideElement==true"
+	  class="col-lg-5 form-group has-search flex-grow-1 mt-1 d-block d-lg-none">
+	  <input type="text" class="form-control" placeholder="Search for Products"
+	    [(ngModel)]="this.productService.searchValue" />
+	</div>
