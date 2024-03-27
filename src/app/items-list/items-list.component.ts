@@ -19,7 +19,7 @@ export class ItemsListComponent implements OnInit{
   @Input('search') searchedValue: string='';
   
   ngOnInit(): void {
-      
+    this.productService.getProducts();
   }
 
   // Add items to cart

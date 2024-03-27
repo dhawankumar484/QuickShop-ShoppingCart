@@ -23,14 +23,14 @@ export class CartComponent implements OnInit{
 
   //Total MRP
   totalCartMRP(){
-    for(let i=0; i<this.productService.cartProducts.length; i++){
-      this.totalMRP = this.totalMRP + this.productService.cartProducts[i].price;
+    for(let cartProduct of this.productService.cartProducts){
+      this.totalMRP += cartProduct.price;
     }
   }
 
   //Remove product from cart
-  removeProduct(value:any){
-    this.productService.cartProducts.splice(this.productService.cartProducts.indexOf(value), 1);
+  removeProduct(index:any){
+    this.productService.cartProducts.splice(index, 1);
     this.totalMRP = 0;
     this.totalCartMRP();
     this.toastr.success("Your item is removed");

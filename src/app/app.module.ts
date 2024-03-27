@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { BannerComponent } from './items-list/banner/banner.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ToastrModule.forRoot(
       {
         timeOut: 2000,
